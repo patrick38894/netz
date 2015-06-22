@@ -3,6 +3,31 @@
 #include <stdlib.h>
 using namespace std;
 
+class neuron {
+public:
+	neuron();
+	neuron(int);
+	~neuron();
+	float forwardPass(vector<float>);
+	float backProp(float);
+private:
+	int size;
+	vector<float> weights;
+};
+
+class net {
+public:
+	net();
+	net(vector<int>);
+	~net();
+	void train(vector<int>, vector<int>);
+	vector<int> classify(vector<int>);
+private:
+	vector<vector<float>> graph;
+};
+
+
+
 void printVec(int * v, int l) {
 	cout << endl << "vector of size " << l << " is:" << endl;
 	for (int i = 0; i < l; ++i) {
